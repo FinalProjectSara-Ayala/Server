@@ -1,0 +1,830 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="inspectorsDBcopyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="agencyTbl">
+          <Key>
+            <PropertyRef Name="agency_id" />
+          </Key>
+          <Property Name="agency_id" Type="int" Nullable="false" />
+          <Property Name="agency_name" Type="nvarchar" MaxLength="255" />
+          <Property Name="agency_url" Type="nvarchar" MaxLength="255" />
+          <Property Name="agency_timezone" Type="nvarchar" MaxLength="255" />
+          <Property Name="agency_lang" Type="nvarchar" MaxLength="255" />
+          <Property Name="agency_phone" Type="nvarchar" MaxLength="255" />
+          <Property Name="agency_fare_url" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="calendarTbl">
+          <Key>
+            <PropertyRef Name="service_id" />
+          </Key>
+          <Property Name="service_id" Type="int" Nullable="false" />
+          <Property Name="sunday" Type="bit" />
+          <Property Name="monday" Type="bit" />
+          <Property Name="tuesday" Type="bit" />
+          <Property Name="wednesday" Type="bit" />
+          <Property Name="thursday" Type="bit" />
+          <Property Name="friday" Type="bit" />
+          <Property Name="saturday" Type="bit" />
+          <Property Name="start_date" Type="float" />
+          <Property Name="end_date" Type="float" />
+        </EntityType>
+        <EntityType Name="cityTbl">
+          <Key>
+            <PropertyRef Name="city_id" />
+          </Key>
+          <Property Name="city_name" Type="nvarchar" MaxLength="255" />
+          <Property Name="city_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="inspectorTbl">
+          <Key>
+            <PropertyRef Name="inspector_id" />
+          </Key>
+          <Property Name="inspector_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="inspector_name" Type="varchar" MaxLength="20" />
+          <Property Name="city" Type="varchar" MaxLength="20" />
+          <Property Name="street" Type="varchar" MaxLength="20" />
+          <Property Name="num_house" Type="int" />
+          <Property Name="phone" Type="varchar" MaxLength="10" />
+          <Property Name="area" Type="nvarchar" MaxLength="25" />
+          <Property Name="inspector_lon" Type="float" />
+          <Property Name="inspector_lat" Type="float" />
+          <Property Name="inspector_password" Type="varchar" MaxLength="32" />
+        </EntityType>
+        <EntityType Name="routsTbl">
+          <Key>
+            <PropertyRef Name="route_id" />
+          </Key>
+          <Property Name="route_id" Type="int" Nullable="false" />
+          <Property Name="agency_id" Type="int" Nullable="false" />
+          <Property Name="route_short_name" Type="nvarchar" MaxLength="25" />
+          <Property Name="route_long_name" Type="nvarchar" MaxLength="255" />
+          <Property Name="route_desc" Type="nvarchar" MaxLength="255" />
+          <Property Name="route_type" Type="int" Nullable="false" />
+          <Property Name="route_color" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="schedulingTbl">
+          <Key>
+            <PropertyRef Name="scheduling_id" />
+          </Key>
+          <Property Name="scheduling_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="inspector_id" Type="int" />
+          <Property Name="route_id" Type="int" />
+          <Property Name="trip_id" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="stop_id" Type="int" Nullable="false" />
+          <Property Name="arrival_time" Type="time" Precision="7" Nullable="false" />
+          <Property Name="dateToday" Type="date" />
+          <Property Name="workhour_id" Type="int" />
+        </EntityType>
+        <EntityType Name="stop_timesTbl">
+          <Key>
+            <PropertyRef Name="stop_times_id" />
+          </Key>
+          <Property Name="trip_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="arrival_time" Type="time" Precision="7" />
+          <Property Name="departure_time" Type="time" Precision="7" />
+          <Property Name="stop_id" Type="int" Nullable="false" />
+          <Property Name="stop_sequence" Type="int" Nullable="false" />
+          <Property Name="pickup_type" Type="int" Nullable="false" />
+          <Property Name="drop_off_type" Type="int" Nullable="false" />
+          <Property Name="shape_dist_traveled" Type="float" />
+          <Property Name="stop_times_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="stopsTbl">
+          <Key>
+            <PropertyRef Name="stop_id" />
+          </Key>
+          <Property Name="stop_id" Type="int" Nullable="false" />
+          <Property Name="stop_code" Type="nvarchar" MaxLength="25" />
+          <Property Name="stop_name" Type="nvarchar" MaxLength="255" />
+          <Property Name="stop_desc" Type="nvarchar" MaxLength="255" />
+          <Property Name="stop_lat" Type="float" />
+          <Property Name="stop_lon" Type="float" />
+          <Property Name="location_type" Type="float" />
+          <Property Name="parent_station" Type="nvarchar" MaxLength="255" />
+          <Property Name="zone_id" Type="int" />
+        </EntityType>
+        <EntityType Name="tripsTbl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="route_id" Type="int" Nullable="false" />
+          <Property Name="service_id" Type="int" Nullable="false" />
+          <Property Name="trip_id" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="trip_headsign" Type="nvarchar" MaxLength="255" />
+          <Property Name="direction_id" Type="int" Nullable="false" />
+          <Property Name="shape_id" Type="float" />
+          <Property Name="last_date" Type="date" />
+          <Property Name="last_time" Type="time" Precision="7" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="before_last_date" Type="date" />
+          <Property Name="before_last_time" Type="time" Precision="7" />
+          <Property Name="num_stops" Type="int" />
+        </EntityType>
+        <EntityType Name="workHours">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="inspector_id" Type="int" Nullable="false" />
+          <Property Name="dayWork" Type="int" Nullable="false" />
+          <Property Name="start_shift" Type="time" Precision="7" Nullable="false" />
+          <Property Name="stop_shift" Type="time" Precision="7" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__routsTbl__agency__71D1E811">
+          <End Role="agencyTbl" Type="Self.agencyTbl" Multiplicity="1" />
+          <End Role="routsTbl" Type="Self.routsTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="agencyTbl">
+              <PropertyRef Name="agency_id" />
+            </Principal>
+            <Dependent Role="routsTbl">
+              <PropertyRef Name="agency_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__schedulin__inspe__2B0A656D">
+          <End Role="inspectorTbl" Type="Self.inspectorTbl" Multiplicity="0..1" />
+          <End Role="schedulingTbl" Type="Self.schedulingTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inspectorTbl">
+              <PropertyRef Name="inspector_id" />
+            </Principal>
+            <Dependent Role="schedulingTbl">
+              <PropertyRef Name="inspector_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__schedulin__route__2BFE89A6">
+          <End Role="routsTbl" Type="Self.routsTbl" Multiplicity="0..1" />
+          <End Role="schedulingTbl" Type="Self.schedulingTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="routsTbl">
+              <PropertyRef Name="route_id" />
+            </Principal>
+            <Dependent Role="schedulingTbl">
+              <PropertyRef Name="route_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__schedulin__stop___4F47C5E3">
+          <End Role="stopsTbl" Type="Self.stopsTbl" Multiplicity="1" />
+          <End Role="schedulingTbl" Type="Self.schedulingTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="stopsTbl">
+              <PropertyRef Name="stop_id" />
+            </Principal>
+            <Dependent Role="schedulingTbl">
+              <PropertyRef Name="stop_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__schedulin__workh__09746778">
+          <End Role="workHours" Type="Self.workHours" Multiplicity="0..1" />
+          <End Role="schedulingTbl" Type="Self.schedulingTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="workHours">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="schedulingTbl">
+              <PropertyRef Name="workhour_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__stop_time__stop___01142BA1">
+          <End Role="stopsTbl" Type="Self.stopsTbl" Multiplicity="1" />
+          <End Role="stop_timesTbl" Type="Self.stop_timesTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="stopsTbl">
+              <PropertyRef Name="stop_id" />
+            </Principal>
+            <Dependent Role="stop_timesTbl">
+              <PropertyRef Name="stop_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tripsTbl__route___72C60C4A">
+          <End Role="routsTbl" Type="Self.routsTbl" Multiplicity="1" />
+          <End Role="tripsTbl" Type="Self.tripsTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="routsTbl">
+              <PropertyRef Name="route_id" />
+            </Principal>
+            <Dependent Role="tripsTbl">
+              <PropertyRef Name="route_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tripsTbl__servic__75A278F5">
+          <End Role="calendarTbl" Type="Self.calendarTbl" Multiplicity="1" />
+          <End Role="tripsTbl" Type="Self.tripsTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="calendarTbl">
+              <PropertyRef Name="service_id" />
+            </Principal>
+            <Dependent Role="tripsTbl">
+              <PropertyRef Name="service_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__workHours__inspe__0880433F">
+          <End Role="inspectorTbl" Type="Self.inspectorTbl" Multiplicity="1" />
+          <End Role="workHours" Type="Self.workHours" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inspectorTbl">
+              <PropertyRef Name="inspector_id" />
+            </Principal>
+            <Dependent Role="workHours">
+              <PropertyRef Name="inspector_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GetStopTimesForDict1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="arrival_time" Type="time" Precision="7" />
+                <Property Name="trip_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+                <Property Name="stop_id" Type="int" Nullable="false" />
+                <Property Name="stop_sequence" Type="int" Nullable="false" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="GetTripsForDictInit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="trip_id" Type="nvarchar" MaxLength="255" Nullable="false" />
+                <Property Name="num_stops" Type="int" />
+                <Property Name="route_id" Type="int" Nullable="false" />
+                <Property Name="last_date" Type="date" />
+                <Property Name="last_time" Type="time" Precision="7" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <EntityContainer Name="inspectorsDBcopyModelStoreContainer">
+          <EntitySet Name="agencyTbl" EntityType="Self.agencyTbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="calendarTbl" EntityType="Self.calendarTbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cityTbl" EntityType="Self.cityTbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="inspectorTbl" EntityType="Self.inspectorTbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="routsTbl" EntityType="Self.routsTbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="schedulingTbl" EntityType="Self.schedulingTbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="stop_timesTbl" EntityType="Self.stop_timesTbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="stopsTbl" EntityType="Self.stopsTbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tripsTbl" EntityType="Self.tripsTbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="workHours" EntityType="Self.workHours" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__routsTbl__agency__71D1E811" Association="Self.FK__routsTbl__agency__71D1E811">
+            <End Role="agencyTbl" EntitySet="agencyTbl" />
+            <End Role="routsTbl" EntitySet="routsTbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__schedulin__inspe__2B0A656D" Association="Self.FK__schedulin__inspe__2B0A656D">
+            <End Role="inspectorTbl" EntitySet="inspectorTbl" />
+            <End Role="schedulingTbl" EntitySet="schedulingTbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__schedulin__route__2BFE89A6" Association="Self.FK__schedulin__route__2BFE89A6">
+            <End Role="routsTbl" EntitySet="routsTbl" />
+            <End Role="schedulingTbl" EntitySet="schedulingTbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__schedulin__stop___4F47C5E3" Association="Self.FK__schedulin__stop___4F47C5E3">
+            <End Role="stopsTbl" EntitySet="stopsTbl" />
+            <End Role="schedulingTbl" EntitySet="schedulingTbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__schedulin__workh__09746778" Association="Self.FK__schedulin__workh__09746778">
+            <End Role="workHours" EntitySet="workHours" />
+            <End Role="schedulingTbl" EntitySet="schedulingTbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__stop_time__stop___01142BA1" Association="Self.FK__stop_time__stop___01142BA1">
+            <End Role="stopsTbl" EntitySet="stopsTbl" />
+            <End Role="stop_timesTbl" EntitySet="stop_timesTbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tripsTbl__route___72C60C4A" Association="Self.FK__tripsTbl__route___72C60C4A">
+            <End Role="routsTbl" EntitySet="routsTbl" />
+            <End Role="tripsTbl" EntitySet="tripsTbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tripsTbl__servic__75A278F5" Association="Self.FK__tripsTbl__servic__75A278F5">
+            <End Role="calendarTbl" EntitySet="calendarTbl" />
+            <End Role="tripsTbl" EntitySet="tripsTbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__workHours__inspe__0880433F" Association="Self.FK__workHours__inspe__0880433F">
+            <End Role="inspectorTbl" EntitySet="inspectorTbl" />
+            <End Role="workHours" EntitySet="workHours" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="inspectorsDBcopyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <ComplexType Name="GetStopTimesForDict1_Result">
+          <Property Name="arrival_time" Type="Time" />
+          <Property Name="trip_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="stop_id" Type="Int32" Nullable="false" />
+          <Property Name="stop_sequence" Type="Int32" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="GetTripsForDictInit_Result">
+          <Property Name="trip_id" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="num_stops" Type="Int32" />
+          <Property Name="route_id" Type="Int32" Nullable="false" />
+          <Property Name="last_date" Type="DateTime" />
+          <Property Name="last_time" Type="Time" />
+        </ComplexType>
+        <EntityType Name="agencyTbl">
+          <Key>
+            <PropertyRef Name="agency_id" />
+          </Key>
+          <Property Name="agency_id" Type="Int32" Nullable="false" />
+          <Property Name="agency_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="agency_url" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="agency_timezone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="agency_lang" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="agency_phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="agency_fare_url" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="routsTbls" Relationship="Self.FK__routsTbl__agency__71D1E811" FromRole="agencyTbl" ToRole="routsTbl" />
+        </EntityType>
+        <EntityType Name="calendarTbl">
+          <Key>
+            <PropertyRef Name="service_id" />
+          </Key>
+          <Property Name="service_id" Type="Int32" Nullable="false" />
+          <Property Name="sunday" Type="Boolean" />
+          <Property Name="monday" Type="Boolean" />
+          <Property Name="tuesday" Type="Boolean" />
+          <Property Name="wednesday" Type="Boolean" />
+          <Property Name="thursday" Type="Boolean" />
+          <Property Name="friday" Type="Boolean" />
+          <Property Name="saturday" Type="Boolean" />
+          <Property Name="start_date" Type="Double" />
+          <Property Name="end_date" Type="Double" />
+          <NavigationProperty Name="tripsTbls" Relationship="Self.FK__tripsTbl__servic__75A278F5" FromRole="calendarTbl" ToRole="tripsTbl" />
+        </EntityType>
+        <EntityType Name="cityTbl">
+          <Key>
+            <PropertyRef Name="city_id" />
+          </Key>
+          <Property Name="city_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="city_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="inspectorTbl">
+          <Key>
+            <PropertyRef Name="inspector_id" />
+          </Key>
+          <Property Name="inspector_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="inspector_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="street" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="num_house" Type="Int32" />
+          <Property Name="phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="area" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="inspector_lon" Type="Double" />
+          <Property Name="inspector_lat" Type="Double" />
+          <Property Name="inspector_password" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="schedulingTbls" Relationship="Self.FK__schedulin__inspe__2B0A656D" FromRole="inspectorTbl" ToRole="schedulingTbl" />
+          <NavigationProperty Name="workHours" Relationship="Self.FK__workHours__inspe__0880433F" FromRole="inspectorTbl" ToRole="workHours" />
+        </EntityType>
+        <EntityType Name="routsTbl">
+          <Key>
+            <PropertyRef Name="route_id" />
+          </Key>
+          <Property Name="route_id" Type="Int32" Nullable="false" />
+          <Property Name="agency_id" Type="Int32" Nullable="false" />
+          <Property Name="route_short_name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="route_long_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="route_desc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="route_type" Type="Int32" Nullable="false" />
+          <Property Name="route_color" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="agencyTbl" Relationship="Self.FK__routsTbl__agency__71D1E811" FromRole="routsTbl" ToRole="agencyTbl" />
+          <NavigationProperty Name="schedulingTbls" Relationship="Self.FK__schedulin__route__2BFE89A6" FromRole="routsTbl" ToRole="schedulingTbl" />
+          <NavigationProperty Name="tripsTbls" Relationship="Self.FK__tripsTbl__route___72C60C4A" FromRole="routsTbl" ToRole="tripsTbl" />
+        </EntityType>
+        <EntityType Name="schedulingTbl">
+          <Key>
+            <PropertyRef Name="scheduling_id" />
+          </Key>
+          <Property Name="scheduling_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="inspector_id" Type="Int32" />
+          <Property Name="route_id" Type="Int32" />
+          <Property Name="trip_id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="stop_id" Type="Int32" Nullable="false" />
+          <Property Name="arrival_time" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="dateToday" Type="DateTime" Precision="0" />
+          <Property Name="workhour_id" Type="Int32" />
+          <NavigationProperty Name="inspectorTbl" Relationship="Self.FK__schedulin__inspe__2B0A656D" FromRole="schedulingTbl" ToRole="inspectorTbl" />
+          <NavigationProperty Name="routsTbl" Relationship="Self.FK__schedulin__route__2BFE89A6" FromRole="schedulingTbl" ToRole="routsTbl" />
+          <NavigationProperty Name="stopsTbl" Relationship="Self.FK__schedulin__stop___4F47C5E3" FromRole="schedulingTbl" ToRole="stopsTbl" />
+          <NavigationProperty Name="workHour" Relationship="Self.FK__schedulin__workh__09746778" FromRole="schedulingTbl" ToRole="workHours" />
+        </EntityType>
+        <EntityType Name="stop_timesTbl">
+          <Key>
+            <PropertyRef Name="stop_times_id" />
+          </Key>
+          <Property Name="trip_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="arrival_time" Type="Time" Precision="7" />
+          <Property Name="departure_time" Type="Time" Precision="7" />
+          <Property Name="stop_id" Type="Int32" Nullable="false" />
+          <Property Name="stop_sequence" Type="Int32" Nullable="false" />
+          <Property Name="pickup_type" Type="Int32" Nullable="false" />
+          <Property Name="drop_off_type" Type="Int32" Nullable="false" />
+          <Property Name="shape_dist_traveled" Type="Double" />
+          <Property Name="stop_times_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="stopsTbl" Relationship="Self.FK__stop_time__stop___01142BA1" FromRole="stop_timesTbl" ToRole="stopsTbl" />
+        </EntityType>
+        <EntityType Name="stopsTbl">
+          <Key>
+            <PropertyRef Name="stop_id" />
+          </Key>
+          <Property Name="stop_id" Type="Int32" Nullable="false" />
+          <Property Name="stop_code" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="stop_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="stop_desc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="stop_lat" Type="Double" />
+          <Property Name="stop_lon" Type="Double" />
+          <Property Name="location_type" Type="Double" />
+          <Property Name="parent_station" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="zone_id" Type="Int32" />
+          <NavigationProperty Name="schedulingTbls" Relationship="Self.FK__schedulin__stop___4F47C5E3" FromRole="stopsTbl" ToRole="schedulingTbl" />
+          <NavigationProperty Name="stop_timesTbl" Relationship="Self.FK__stop_time__stop___01142BA1" FromRole="stopsTbl" ToRole="stop_timesTbl" />
+        </EntityType>
+        <EntityType Name="tripsTbl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="route_id" Type="Int32" Nullable="false" />
+          <Property Name="service_id" Type="Int32" Nullable="false" />
+          <Property Name="trip_id" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="trip_headsign" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="direction_id" Type="Int32" Nullable="false" />
+          <Property Name="shape_id" Type="Double" />
+          <Property Name="last_date" Type="DateTime" Precision="0" />
+          <Property Name="last_time" Type="Time" Precision="7" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="before_last_date" Type="DateTime" Precision="0" />
+          <Property Name="before_last_time" Type="Time" Precision="7" />
+          <Property Name="num_stops" Type="Int32" />
+          <NavigationProperty Name="calendarTbl" Relationship="Self.FK__tripsTbl__servic__75A278F5" FromRole="tripsTbl" ToRole="calendarTbl" />
+          <NavigationProperty Name="routsTbl" Relationship="Self.FK__tripsTbl__route___72C60C4A" FromRole="tripsTbl" ToRole="routsTbl" />
+        </EntityType>
+        <EntityType Name="workHour">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="inspector_id" Type="Int32" Nullable="false" />
+          <Property Name="dayWork" Type="Int32" Nullable="false" />
+          <Property Name="start_shift" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="stop_shift" Type="Time" Nullable="false" Precision="7" />
+          <NavigationProperty Name="inspectorTbl" Relationship="Self.FK__workHours__inspe__0880433F" FromRole="workHours" ToRole="inspectorTbl" />
+          <NavigationProperty Name="schedulingTbls" Relationship="Self.FK__schedulin__workh__09746778" FromRole="workHours" ToRole="schedulingTbl" />
+        </EntityType>
+        <Association Name="FK__routsTbl__agency__71D1E811">
+          <End Role="agencyTbl" Type="Self.agencyTbl" Multiplicity="1" />
+          <End Role="routsTbl" Type="Self.routsTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="agencyTbl">
+              <PropertyRef Name="agency_id" />
+            </Principal>
+            <Dependent Role="routsTbl">
+              <PropertyRef Name="agency_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tripsTbl__servic__75A278F5">
+          <End Role="calendarTbl" Type="Self.calendarTbl" Multiplicity="1" />
+          <End Role="tripsTbl" Type="Self.tripsTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="calendarTbl">
+              <PropertyRef Name="service_id" />
+            </Principal>
+            <Dependent Role="tripsTbl">
+              <PropertyRef Name="service_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__schedulin__inspe__2B0A656D">
+          <End Role="inspectorTbl" Type="Self.inspectorTbl" Multiplicity="0..1" />
+          <End Role="schedulingTbl" Type="Self.schedulingTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inspectorTbl">
+              <PropertyRef Name="inspector_id" />
+            </Principal>
+            <Dependent Role="schedulingTbl">
+              <PropertyRef Name="inspector_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__workHours__inspe__0880433F">
+          <End Role="inspectorTbl" Type="Self.inspectorTbl" Multiplicity="1" />
+          <End Role="workHours" Type="Self.workHour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inspectorTbl">
+              <PropertyRef Name="inspector_id" />
+            </Principal>
+            <Dependent Role="workHours">
+              <PropertyRef Name="inspector_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__schedulin__route__2BFE89A6">
+          <End Role="routsTbl" Type="Self.routsTbl" Multiplicity="0..1" />
+          <End Role="schedulingTbl" Type="Self.schedulingTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="routsTbl">
+              <PropertyRef Name="route_id" />
+            </Principal>
+            <Dependent Role="schedulingTbl">
+              <PropertyRef Name="route_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tripsTbl__route___72C60C4A">
+          <End Role="routsTbl" Type="Self.routsTbl" Multiplicity="1" />
+          <End Role="tripsTbl" Type="Self.tripsTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="routsTbl">
+              <PropertyRef Name="route_id" />
+            </Principal>
+            <Dependent Role="tripsTbl">
+              <PropertyRef Name="route_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__schedulin__stop___4F47C5E3">
+          <End Role="stopsTbl" Type="Self.stopsTbl" Multiplicity="1" />
+          <End Role="schedulingTbl" Type="Self.schedulingTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="stopsTbl">
+              <PropertyRef Name="stop_id" />
+            </Principal>
+            <Dependent Role="schedulingTbl">
+              <PropertyRef Name="stop_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__schedulin__workh__09746778">
+          <End Role="workHours" Type="Self.workHour" Multiplicity="0..1" />
+          <End Role="schedulingTbl" Type="Self.schedulingTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="workHours">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="schedulingTbl">
+              <PropertyRef Name="workhour_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__stop_time__stop___01142BA1">
+          <End Role="stopsTbl" Type="Self.stopsTbl" Multiplicity="1" />
+          <End Role="stop_timesTbl" Type="Self.stop_timesTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="stopsTbl">
+              <PropertyRef Name="stop_id" />
+            </Principal>
+            <Dependent Role="stop_timesTbl">
+              <PropertyRef Name="stop_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="inspectorsDBcopyEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="agencyTbls" EntityType="Self.agencyTbl" />
+          <EntitySet Name="calendarTbls" EntityType="Self.calendarTbl" />
+          <EntitySet Name="cityTbls" EntityType="Self.cityTbl" />
+          <EntitySet Name="inspectorTbls" EntityType="Self.inspectorTbl" />
+          <EntitySet Name="routsTbls" EntityType="Self.routsTbl" />
+          <EntitySet Name="schedulingTbls" EntityType="Self.schedulingTbl" />
+          <EntitySet Name="stop_timesTbl" EntityType="Self.stop_timesTbl" />
+          <EntitySet Name="stopsTbls" EntityType="Self.stopsTbl" />
+          <EntitySet Name="tripsTbls" EntityType="Self.tripsTbl" />
+          <EntitySet Name="workHours" EntityType="Self.workHour" />
+          <AssociationSet Name="FK__routsTbl__agency__71D1E811" Association="Self.FK__routsTbl__agency__71D1E811">
+            <End Role="agencyTbl" EntitySet="agencyTbls" />
+            <End Role="routsTbl" EntitySet="routsTbls" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tripsTbl__servic__75A278F5" Association="Self.FK__tripsTbl__servic__75A278F5">
+            <End Role="calendarTbl" EntitySet="calendarTbls" />
+            <End Role="tripsTbl" EntitySet="tripsTbls" />
+          </AssociationSet>
+          <AssociationSet Name="FK__schedulin__inspe__2B0A656D" Association="Self.FK__schedulin__inspe__2B0A656D">
+            <End Role="inspectorTbl" EntitySet="inspectorTbls" />
+            <End Role="schedulingTbl" EntitySet="schedulingTbls" />
+          </AssociationSet>
+          <AssociationSet Name="FK__workHours__inspe__0880433F" Association="Self.FK__workHours__inspe__0880433F">
+            <End Role="inspectorTbl" EntitySet="inspectorTbls" />
+            <End Role="workHours" EntitySet="workHours" />
+          </AssociationSet>
+          <AssociationSet Name="FK__schedulin__route__2BFE89A6" Association="Self.FK__schedulin__route__2BFE89A6">
+            <End Role="routsTbl" EntitySet="routsTbls" />
+            <End Role="schedulingTbl" EntitySet="schedulingTbls" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tripsTbl__route___72C60C4A" Association="Self.FK__tripsTbl__route___72C60C4A">
+            <End Role="routsTbl" EntitySet="routsTbls" />
+            <End Role="tripsTbl" EntitySet="tripsTbls" />
+          </AssociationSet>
+          <AssociationSet Name="FK__schedulin__stop___4F47C5E3" Association="Self.FK__schedulin__stop___4F47C5E3">
+            <End Role="stopsTbl" EntitySet="stopsTbls" />
+            <End Role="schedulingTbl" EntitySet="schedulingTbls" />
+          </AssociationSet>
+          <AssociationSet Name="FK__schedulin__workh__09746778" Association="Self.FK__schedulin__workh__09746778">
+            <End Role="workHours" EntitySet="workHours" />
+            <End Role="schedulingTbl" EntitySet="schedulingTbls" />
+          </AssociationSet>
+          <AssociationSet Name="FK__stop_time__stop___01142BA1" Association="Self.FK__stop_time__stop___01142BA1">
+            <End Role="stopsTbl" EntitySet="stopsTbls" />
+            <End Role="stop_timesTbl" EntitySet="stop_timesTbl" />
+          </AssociationSet>
+          <FunctionImport Name="GetStopTimesForDict1" IsComposable="true" ReturnType="Collection(inspectorsDBcopyModel.GetStopTimesForDict1_Result)" />
+          <FunctionImport Name="GetTripsForDictInit" IsComposable="true" ReturnType="Collection(inspectorsDBcopyModel.GetTripsForDictInit_Result)" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="inspectorsDBcopyModelStoreContainer" CdmEntityContainer="inspectorsDBcopyEntities3">
+          <EntitySetMapping Name="agencyTbls">
+            <EntityTypeMapping TypeName="inspectorsDBcopyModel.agencyTbl">
+              <MappingFragment StoreEntitySet="agencyTbl">
+                <ScalarProperty Name="agency_id" ColumnName="agency_id" />
+                <ScalarProperty Name="agency_name" ColumnName="agency_name" />
+                <ScalarProperty Name="agency_url" ColumnName="agency_url" />
+                <ScalarProperty Name="agency_timezone" ColumnName="agency_timezone" />
+                <ScalarProperty Name="agency_lang" ColumnName="agency_lang" />
+                <ScalarProperty Name="agency_phone" ColumnName="agency_phone" />
+                <ScalarProperty Name="agency_fare_url" ColumnName="agency_fare_url" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="calendarTbls">
+            <EntityTypeMapping TypeName="inspectorsDBcopyModel.calendarTbl">
+              <MappingFragment StoreEntitySet="calendarTbl">
+                <ScalarProperty Name="service_id" ColumnName="service_id" />
+                <ScalarProperty Name="sunday" ColumnName="sunday" />
+                <ScalarProperty Name="monday" ColumnName="monday" />
+                <ScalarProperty Name="tuesday" ColumnName="tuesday" />
+                <ScalarProperty Name="wednesday" ColumnName="wednesday" />
+                <ScalarProperty Name="thursday" ColumnName="thursday" />
+                <ScalarProperty Name="friday" ColumnName="friday" />
+                <ScalarProperty Name="saturday" ColumnName="saturday" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cityTbls">
+            <EntityTypeMapping TypeName="inspectorsDBcopyModel.cityTbl">
+              <MappingFragment StoreEntitySet="cityTbl">
+                <ScalarProperty Name="city_name" ColumnName="city_name" />
+                <ScalarProperty Name="city_id" ColumnName="city_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inspectorTbls">
+            <EntityTypeMapping TypeName="inspectorsDBcopyModel.inspectorTbl">
+              <MappingFragment StoreEntitySet="inspectorTbl">
+                <ScalarProperty Name="inspector_id" ColumnName="inspector_id" />
+                <ScalarProperty Name="inspector_name" ColumnName="inspector_name" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="street" ColumnName="street" />
+                <ScalarProperty Name="num_house" ColumnName="num_house" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="area" ColumnName="area" />
+                <ScalarProperty Name="inspector_lon" ColumnName="inspector_lon" />
+                <ScalarProperty Name="inspector_lat" ColumnName="inspector_lat" />
+                <ScalarProperty Name="inspector_password" ColumnName="inspector_password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="routsTbls">
+            <EntityTypeMapping TypeName="inspectorsDBcopyModel.routsTbl">
+              <MappingFragment StoreEntitySet="routsTbl">
+                <ScalarProperty Name="route_id" ColumnName="route_id" />
+                <ScalarProperty Name="agency_id" ColumnName="agency_id" />
+                <ScalarProperty Name="route_short_name" ColumnName="route_short_name" />
+                <ScalarProperty Name="route_long_name" ColumnName="route_long_name" />
+                <ScalarProperty Name="route_desc" ColumnName="route_desc" />
+                <ScalarProperty Name="route_type" ColumnName="route_type" />
+                <ScalarProperty Name="route_color" ColumnName="route_color" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="schedulingTbls">
+            <EntityTypeMapping TypeName="inspectorsDBcopyModel.schedulingTbl">
+              <MappingFragment StoreEntitySet="schedulingTbl">
+                <ScalarProperty Name="scheduling_id" ColumnName="scheduling_id" />
+                <ScalarProperty Name="inspector_id" ColumnName="inspector_id" />
+                <ScalarProperty Name="route_id" ColumnName="route_id" />
+                <ScalarProperty Name="trip_id" ColumnName="trip_id" />
+                <ScalarProperty Name="stop_id" ColumnName="stop_id" />
+                <ScalarProperty Name="arrival_time" ColumnName="arrival_time" />
+                <ScalarProperty Name="dateToday" ColumnName="dateToday" />
+                <ScalarProperty Name="workhour_id" ColumnName="workhour_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="stop_timesTbl">
+            <EntityTypeMapping TypeName="inspectorsDBcopyModel.stop_timesTbl">
+              <MappingFragment StoreEntitySet="stop_timesTbl">
+                <ScalarProperty Name="trip_id" ColumnName="trip_id" />
+                <ScalarProperty Name="arrival_time" ColumnName="arrival_time" />
+                <ScalarProperty Name="departure_time" ColumnName="departure_time" />
+                <ScalarProperty Name="stop_id" ColumnName="stop_id" />
+                <ScalarProperty Name="stop_sequence" ColumnName="stop_sequence" />
+                <ScalarProperty Name="pickup_type" ColumnName="pickup_type" />
+                <ScalarProperty Name="drop_off_type" ColumnName="drop_off_type" />
+                <ScalarProperty Name="shape_dist_traveled" ColumnName="shape_dist_traveled" />
+                <ScalarProperty Name="stop_times_id" ColumnName="stop_times_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="stopsTbls">
+            <EntityTypeMapping TypeName="inspectorsDBcopyModel.stopsTbl">
+              <MappingFragment StoreEntitySet="stopsTbl">
+                <ScalarProperty Name="stop_id" ColumnName="stop_id" />
+                <ScalarProperty Name="stop_code" ColumnName="stop_code" />
+                <ScalarProperty Name="stop_name" ColumnName="stop_name" />
+                <ScalarProperty Name="stop_desc" ColumnName="stop_desc" />
+                <ScalarProperty Name="stop_lat" ColumnName="stop_lat" />
+                <ScalarProperty Name="stop_lon" ColumnName="stop_lon" />
+                <ScalarProperty Name="location_type" ColumnName="location_type" />
+                <ScalarProperty Name="parent_station" ColumnName="parent_station" />
+                <ScalarProperty Name="zone_id" ColumnName="zone_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tripsTbls">
+            <EntityTypeMapping TypeName="inspectorsDBcopyModel.tripsTbl">
+              <MappingFragment StoreEntitySet="tripsTbl">
+                <ScalarProperty Name="route_id" ColumnName="route_id" />
+                <ScalarProperty Name="service_id" ColumnName="service_id" />
+                <ScalarProperty Name="trip_id" ColumnName="trip_id" />
+                <ScalarProperty Name="trip_headsign" ColumnName="trip_headsign" />
+                <ScalarProperty Name="direction_id" ColumnName="direction_id" />
+                <ScalarProperty Name="shape_id" ColumnName="shape_id" />
+                <ScalarProperty Name="last_date" ColumnName="last_date" />
+                <ScalarProperty Name="last_time" ColumnName="last_time" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="before_last_date" ColumnName="before_last_date" />
+                <ScalarProperty Name="before_last_time" ColumnName="before_last_time" />
+                <ScalarProperty Name="num_stops" ColumnName="num_stops" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="workHours">
+            <EntityTypeMapping TypeName="inspectorsDBcopyModel.workHour">
+              <MappingFragment StoreEntitySet="workHours">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="inspector_id" ColumnName="inspector_id" />
+                <ScalarProperty Name="dayWork" ColumnName="dayWork" />
+                <ScalarProperty Name="start_shift" ColumnName="start_shift" />
+                <ScalarProperty Name="stop_shift" ColumnName="stop_shift" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionName="inspectorsDBcopyModel.Store.GetStopTimesForDict1" FunctionImportName="GetStopTimesForDict1">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="inspectorsDBcopyModel.GetStopTimesForDict1_Result">
+                <ScalarProperty Name="arrival_time" ColumnName="arrival_time" />
+                <ScalarProperty Name="trip_id" ColumnName="trip_id" />
+                <ScalarProperty Name="stop_id" ColumnName="stop_id" />
+                <ScalarProperty Name="stop_sequence" ColumnName="stop_sequence" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="inspectorsDBcopyModel.Store.GetTripsForDictInit" FunctionImportName="GetTripsForDictInit">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="inspectorsDBcopyModel.GetTripsForDictInit_Result">
+                <ScalarProperty Name="trip_id" ColumnName="trip_id" />
+                <ScalarProperty Name="num_stops" ColumnName="num_stops" />
+                <ScalarProperty Name="route_id" ColumnName="route_id" />
+                <ScalarProperty Name="last_date" ColumnName="last_date" />
+                <ScalarProperty Name="last_time" ColumnName="last_time" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

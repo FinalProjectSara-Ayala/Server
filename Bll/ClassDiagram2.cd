@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Bll.algoritm.Algorithm">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>algoritm\Algorithm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bll.algoritm.DataStructure">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>algoritm\DataStructure.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bll.algoritm.Dynamic">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIIBAwQAAEABAAAkACCwAAkAAAAAEAAmAA=</HashCode>
+      <FileName>algoritm\Dynamic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bll.algoritm.Pass">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>algoritm\Pass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bll.algoritm.RealTime">
+    <Position X="5.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAABAAAQAEAAgAAAAAAAQAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>algoritm\RealTime.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bll.algoritm.Route">
+    <Position X="4" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAIAAAAAAAAAAAAAAAAAAAAAAAAAgQ=</HashCode>
+      <FileName>algoritm\Route.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bll.algoritm.RouteAndStop">
+    <Position X="7.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAASAAgAAAIAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>algoritm\RouteAndStop.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bll.algoritm.DictAndList">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>algoritm\Station.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bll.algoritm.Station">
+    <Position X="4" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>algoritm\Station.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bll.algoritm.StationInMat">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAIAAAAABAAAAAAAAEAAAAEAAA=</HashCode>
+      <FileName>algoritm\StationInMat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bll.algoritm.stopTimeAndSeq">
+    <Position X="0.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>algoritm\stopTimeAndSeq.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bll.Class1" Collapsed="true">
+    <Position X="10" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Class1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bll.ClsDb" Collapsed="true">
+    <Position X="10" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EBECEAAFAAAASBAAQoCAAAQAAAAAAEQIBAAAAMAAgAA=</HashCode>
+      <FileName>ClsDb.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bll.RequestResult" Collapsed="true">
+    <Position X="10" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAABAAAAAAIAAAAAA=</HashCode>
+      <FileName>RequestResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

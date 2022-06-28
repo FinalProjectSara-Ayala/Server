@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8854d36c819846fd8b02eb3e9851ffb3" Name="Diagram1">
+        <EntityTypeShape EntityType="inspectorsDBcopyModel.agencyTbl" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="inspectorsDBcopyModel.calendarTbl" Width="1.5" PointX="3" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="inspectorsDBcopyModel.cityTbl" Width="1.5" PointX="7.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="inspectorsDBcopyModel.inspectorTbl" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="inspectorsDBcopyModel.routsTbl" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="inspectorsDBcopyModel.schedulingTbl" Width="1.5" PointX="5.25" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="inspectorsDBcopyModel.stop_timesTbl" Width="1.5" PointX="5.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="inspectorsDBcopyModel.stopsTbl" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="inspectorsDBcopyModel.tripsTbl" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="inspectorsDBcopyModel.workHour" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <AssociationConnector Association="inspectorsDBcopyModel.FK__routsTbl__agency__71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="inspectorsDBcopyModel.FK__tripsTbl__servic__75A278F5" ManuallyRouted="false" />
+        <AssociationConnector Association="inspectorsDBcopyModel.FK__schedulin__inspe__2B0A656D" ManuallyRouted="false" />
+        <AssociationConnector Association="inspectorsDBcopyModel.FK__workHours__inspe__0880433F" ManuallyRouted="false" />
+        <AssociationConnector Association="inspectorsDBcopyModel.FK__schedulin__route__2BFE89A6" ManuallyRouted="false" />
+        <AssociationConnector Association="inspectorsDBcopyModel.FK__tripsTbl__route___72C60C4A" ManuallyRouted="false" />
+        <AssociationConnector Association="inspectorsDBcopyModel.FK__schedulin__stop___4F47C5E3" ManuallyRouted="false" />
+        <AssociationConnector Association="inspectorsDBcopyModel.FK__schedulin__workh__09746778" ManuallyRouted="false" />
+        <AssociationConnector Association="inspectorsDBcopyModel.FK__stop_time__stop___01142BA1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

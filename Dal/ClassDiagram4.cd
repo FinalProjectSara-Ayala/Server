@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Dal.Class1" Collapsed="true">
+    <Position X="11.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Class1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.inspectorsKavimDBEntities15" Collapsed="true">
+    <Position X="11.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAhEMAACCBAAAEYAIAQhAAAAkBAAAEAIAAAgAIAgAQI=</HashCode>
+      <FileName>Model1.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.agencyTbl" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACBAAAAoQEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>agencyTbl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.calendarTbl">
+    <Position X="5.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAEAICAAAAIAAgAAAgAgAAACAAiAAAAAAAAAA=</HashCode>
+      <FileName>calendarTbl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.Get_routes_Result" Collapsed="true">
+    <Position X="14.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAgQ=</HashCode>
+      <FileName>Get_routes_Result.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.Get_stopTimes_Result" Collapsed="true">
+    <Position X="14.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Get_stopTimes_Result.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.GetNumStopsForTripTable_Result" Collapsed="true">
+    <Position X="11.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GetNumStopsForTripTable_Result.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.GetRoutes_Result" Collapsed="true">
+    <Position X="11.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAgQ=</HashCode>
+      <FileName>GetRoutes_Result.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.GetStops_timesForStop_Result" Collapsed="true">
+    <Position X="11.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAEoAAAAAAAAAAAAEAAAAAAAAAAAgQAAAAABAAAAA=</HashCode>
+      <FileName>GetStops_timesForStop_Result.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.GetStops_timesForStopAndShift_Result" Collapsed="true">
+    <Position X="14.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAEoAAAAAAAAAAAAEAAAAAAAAAAAgQAAAAABAAAAA=</HashCode>
+      <FileName>GetStops_timesForStopAndShift_Result.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.GetStops_timesForStopAndShiftDistinct_Result" Collapsed="true">
+    <Position X="14.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GetStops_timesForStopAndShiftDistinct_Result.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.GetStopTimes_Result" Collapsed="true">
+    <Position X="11.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAEAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>GetStopTimes_Result.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.GetStopTimesForDict_Result">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAEAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>GetStopTimesForDict_Result.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.GetTripForStopAndTime_Result" Collapsed="true">
+    <Position X="11.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAKAAAAAAAAAAAAAIgAAAAiAAAAAgAAAAkA=</HashCode>
+      <FileName>GetTripForStopAndTime_Result.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.GetTripsForDict_Result" Collapsed="true">
+    <Position X="14.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAkQ=</HashCode>
+      <FileName>GetTripsForDict_Result.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.GetTripsForDictInit_Result">
+    <Position X="0.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAiAAAAAAAAAAEQ=</HashCode>
+      <FileName>GetTripsForDictInit_Result.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.inspectorTbl">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAgAAQAAAAAAAAAAAACBAAABUAAgAgAAAAAAAAAQE=</HashCode>
+      <FileName>inspectorTbl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.routsTbl">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAECAAIAAAAAAAgAAACAAABAACAAAAAIAgAAQA=</HashCode>
+      <FileName>routsTbl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.schedulingTbl">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAgIAIAAAAAAAAAQUAAAAAABAAAAiAAAAAAAAAgAA=</HashCode>
+      <FileName>schedulingTbl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.stop_timesTbl">
+    <Position X="7.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAEoAAAAAAAAAAAAUAAAAAAAAAAAgQAAAAABAAAAA=</HashCode>
+      <FileName>stop_timesTbl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.stopsTbl">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYBIAAAkAAAAAAgAAEAAAAAAAAAAAAIAAAAAAAAAQI=</HashCode>
+      <FileName>stopsTbl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.tripsTbl">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAABAAABKAAAAAAAAAAAAAIgAAAAiAAAAAgAAAAkQ=</HashCode>
+      <FileName>tripsTbl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.workHour">
+    <Position X="4" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQgAAIAAAIAAAAAAAAAAAAAAAAAAAAAAAAAABAAwA=</HashCode>
+      <FileName>workHour.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
